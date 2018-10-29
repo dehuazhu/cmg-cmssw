@@ -6,6 +6,7 @@ import os
 import pprint
 import pickle
 import shutil
+import time
 
 MAX_ARG_STRLEN = 131072
 
@@ -18,7 +19,11 @@ def haddPck(file, odir, idirs):
     for dir in idirs:
         fileName = file.replace( idirs[0], dir )
         pckfile = open(fileName)
-        obj = pickle.load(pckfile)
+        try:
+            obj = pickle.load(pckfile)
+        except:
+            time.sleep(10)
+            pass
         if sum is None:
             sum = obj
         else:
@@ -198,4 +203,5 @@ if __name__ == '__main__':
       odir='./'
 
     haddChunks(dir, options.remove, options.clean, odir)
+
 
