@@ -26,6 +26,9 @@ public:
   typedef Surface::GlobalVector   GlobalVector;
   typedef Surface::GlobalPoint    GlobalPoint;
 
+  /// Dummy constructor for ROOT
+  MagGeometry(){};  
+
   /// Constructor
   MagGeometry(int geomVersion, const std::vector<MagBLayer *>& ,
 			     const std::vector<MagESector *>& ,
